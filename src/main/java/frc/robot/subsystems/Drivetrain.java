@@ -7,6 +7,10 @@
 
 package frc.robot.subsystems;
 
+import com.kauailabs.navx.frc.AHRS;
+
+import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -26,6 +30,9 @@ public class Drivetrain extends Subsystem {
 
   SpeedControllerGroup left_mtrs = new SpeedControllerGroup(fl_mtr_ctrl, bl_mtr_ctrl);
   SpeedControllerGroup right_mtrs = new SpeedControllerGroup(fr_mtr_ctrl, br_mtr_ctrl);
+
+  //Gyro
+  public final AHRS gyro = new AHRS(SerialPort.Port.kMXP);
 
   @Override
   public void initDefaultCommand() {
